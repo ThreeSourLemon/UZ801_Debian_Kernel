@@ -97,8 +97,8 @@ jobs:
       - name: Chroot
         run: |
            cd $GITHUB_WORKSPACE/kernel_workflow
-           wget https://ftp-master.debian.org/keys/archive-key-13.asc
-           sudo apt-key add archive-key-13.asc
+           sudo rm /usr/share/keyrings/debian-archive-keyring.gpg
+           sudo wget -O /usr/share/keyrings/debian-archive-keyring.gpg https://raw.githubusercontent.com/ThreeSourLemon/UZ801_Debian_Kernel/refs/heads/trixie/config/debian-archive-keyring.gpg
            sudo apt-get install debootstrap qemu-user-static binfmt-support 
            sudo debootstrap --arch arm64 --foreign trixie rootfs 	https://ftp.debian.org/debian
            
