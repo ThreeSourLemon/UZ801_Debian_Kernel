@@ -97,8 +97,8 @@ jobs:
       - name: Chroot
         run: |
            cd $GITHUB_WORKSPACE/kernel_workflow
-           wget https://ftp-master.debian.org/keys/release-13.asc
-           sudo apt-key add release-13.asc
+           wget https://ftp-master.debian.org/keys/archive-key-13.asc
+           sudo apt-key add archive-key-13.asc
            sudo apt-get install debootstrap qemu-user-static binfmt-support 
            sudo debootstrap --arch arm64 --foreign trixie rootfs 	https://ftp.debian.org/debian
            
